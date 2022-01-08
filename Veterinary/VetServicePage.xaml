@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Veterinary.VetServicePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="20">
+            <Editor Placeholder="Enter desired veterinary service name" Margin="20"
+ Text="{Binding Description}"
+ HeightRequest="50" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save"
+ Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1"
+ Text="Delete"
+Clicked="OnDeleteButtonClicked"/>
+                <ListView Grid.Row="1" x:Name="listView"
+ Margin="20"
+ ItemSelected="OnListViewItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Description}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

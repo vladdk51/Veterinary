@@ -5,7 +5,7 @@ using SQLite;
 
 namespace Veterinary.Models
 {
-    class AppointmentsList
+    public class AppointmentsList
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
